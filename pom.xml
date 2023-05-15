@@ -69,34 +69,9 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
-        <plugin>
-          <groupId>org.jacoco</groupId>
-          <artifactId>jacoco-maven-plugin</artifactId>
-          <version>0.7.6.201602180812</version>
-          <executions>
-           <execution>
-            <id>prepare-agent</id>
-            <goals>
-              <goal>prepare-agent</goal>
-            </goals>
-           </execution>
-           <execution>
-             <id>default-report</id>
-             <phase>prepare-package</phase>
-             <goals>
-               <goal>report</goal>
-             </goals>
-           </execution>
-           <execution>
-             <id>default-check</id>
-             <goals>
-               <goal>check</goal>
-             </goals>
-           </execution>
-          </executions>
-        </plugin>
       </plugins>
     </pluginManagement>
+
     <plugins>
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
@@ -116,27 +91,32 @@
 				</execution>
 			</executions>
 		</plugin>
-	</plugins>
-  </build>
-  <reporting>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-project-info-reports-plugin</artifactId>
-        <version>3.0.0</version>
-      </plugin>
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
-        <reportSets>
-          <reportSet>
-            <reports>
-              <!-- select non-aggregate reports -->
-              <report>@{argLine} report</report>
-            </reports>
-          </reportSet>
-        </reportSets>
+        <version>0.7.6.201602180812</version>
+        <executions>
+          <execution>
+            <id>prepare-agent</id>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>default-report</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>default-check</id>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
-    </plugins>
-  </reporting>
+	</plugins>
+  </build>
 </project>
