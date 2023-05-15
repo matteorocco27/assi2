@@ -1,5 +1,5 @@
 
-[![Java CI with Maven](https://github.com/matteorocco27/assi2/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/matteorocco27/assi2/actions/workflows/build.yml)
+[![build](https://github.com/matteorocco27/assi2/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/matteorocco27/assi2/actions/workflows/build.yml)
 
 ////////////////////////////////////////////////////////////////////
 // [MATTEO ALBERTO] [ROCCO] [2042354]
