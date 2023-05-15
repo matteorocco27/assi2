@@ -1,3 +1,4 @@
+!\[my badge\](https://badgen.net/azure-pipelines/build/status/dnceng/public/51)
 ////////////////////////////////////////////////////////////////////
 // [MATTEO ALBERTO] [ROCCO] [2042354]
 // [ION] [BOUROSU] [2010006]
