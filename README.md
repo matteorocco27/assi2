@@ -1,5 +1,5 @@
 
-https://img.shields.io/github/actions/workflow/status/matteorocco27/assi2/build.yml
+![image]({BadgeURLHerehttps://img.shields.io/github/actions/workflow/status/matteorocco27/assi2/build.yml})
 
 ////////////////////////////////////////////////////////////////////
 // [MATTEO ALBERTO] [ROCCO] [2042354]
