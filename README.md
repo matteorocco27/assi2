@@ -1,5 +1,5 @@
 
-![image]({https://img.shields.io/github/actions/workflow/status/matteorocco27/assi2/build.yml})
+[![Java CI with Maven](https://github.com/matteorocco27/assi2/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/matteorocco27/assi2/actions/workflows/build.yml)
 
 ////////////////////////////////////////////////////////////////////
 // [MATTEO ALBERTO] [ROCCO] [2042354]
