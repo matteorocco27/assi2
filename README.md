@@ -1,5 +1,5 @@
 
-!\[my badge\](https://badgen.net/badge/build/pass/green?icon=github)
+https://img.shields.io/github/actions/workflow/status/matteorocco27/assi2/build.yml
 
 ////////////////////////////////////////////////////////////////////
 // [MATTEO ALBERTO] [ROCCO] [2042354]
