@@ -18,5 +18,5 @@ jobs:
         run: mvn -B install --file pom.xml
       - name: Coverall
         env:
-          GITHUB_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}ù
+          github_token: ${{ secrets.GITHUB_TOKEN }}
         run: mvn -B clean test jacoco:report coveralls:report
