@@ -8,7 +8,7 @@ public class RomanPrinter {
 public static String print(int number) {
 return printAsciiArt(IntegerToRoman.convert(number));
 }
-private static String printAsciiArt(String romanNumber) {
+public static String printAsciiArt(String romanNumber) {
 String any = romanNumber;
 String[] sArray = any.split("");
 String str1 = "";
