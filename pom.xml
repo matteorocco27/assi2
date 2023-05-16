@@ -102,13 +102,6 @@
               <goal>prepare-agent</goal>
             </goals>
           </execution>
-          <execution>
-            <id>default-report</id>
-            <phase>prepare-package</phase>
-            <goals>
-              <goal>report</goal>
-            </goals>
-          </execution>
         </executions>
       </plugin>
       <plugin>
@@ -116,7 +109,7 @@
         <artifactId>coveralls-maven-plugin</artifactId>
         <version>4.3.0</version>
         <configuration>
-          <repoToken>COVERALLS_REPO_TOKEN</repoToken>
+          <repoToken>$secrets.COVERALLS_REPO_TOKEN</repoToken>
         </configuration>
       </plugin>
 	</plugins>
