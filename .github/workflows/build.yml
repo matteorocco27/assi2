@@ -17,6 +17,6 @@ jobs:
       - name: Build with Maven
         run: mvn -B install --file pom.xml
       - name: Coveralls
-        run: mvn -B clean test jacoco:report coveralls:report --define repoToken=${{ secrets.COVERALLS_REPO_TOKEN }}
         env:
-          repo-token: ${{ secrets.COVERALLS_REPO_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}ù
+          run: mvn -B clean test jacoco:report coveralls:report --service=github
