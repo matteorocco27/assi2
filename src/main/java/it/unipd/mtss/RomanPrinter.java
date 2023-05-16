@@ -83,10 +83,4 @@ System.out.println(str5);
 System.out.println(str6);
 return null;
 }
-public static void main(String args[]) {
-int num = 1;
-System.out.println("Integer: " + num);
-System.out.println("Corresponding Roman Numerals is: " + IntegerToRoman.convert(num));
-print(num);
-}
 }
