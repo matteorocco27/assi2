@@ -15,8 +15,7 @@ jobs:
           distribution: 'temurin'
           cache: 'maven'
       - name: Build with Maven
-        run: mvn -B install --file pom.xml
-      - name: Coverall
-        env:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-        run: mvn -B clean test jacoco:report coveralls:report
+        run: mvn -B clean package jacoco:report
+            
+      - name: Coveralls
+        run: mvn -B coveralls:report --define repoToken=${{ secrets.GITHUB_TOKEN }}
