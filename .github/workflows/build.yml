@@ -19,4 +19,4 @@ jobs:
       - name: Coverall
         env:
           GITHUB_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}ù
-          run: mvn -B clean test jacoco:report coveralls:report --service=github
+        run: mvn -B clean test jacoco:report coveralls:report --service=github
