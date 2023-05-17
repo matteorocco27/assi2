@@ -5,90 +5,112 @@
 
 package it.unipd.mtss;
 
-import java.util.Arrays;
 
 public class RomanPrinter {
-public static String[] print(int number) {
-return printAsciiArt(IntegerToRoman.convert(number));
-}
-public static String[] printAsciiArt(String romanNumber) {
-String any = romanNumber;
-String[] sArray = any.split("");
-String str1 = "";
-String str2 = "";
-String str3 = "";
-String str4 = "";
-String str5 = "";
-String str6 = "";
-for (int i = 0; i < sArray.length; i++) {
-if (sArray[i].equals("I")) {
-str1 += "  _____ ";
-str2 += " |_   _|";
-str3 += "   | |  ";
-str4 += "   | |  ";
-str5 += "  _| |_ ";
-str6 += " |_____|";
-}
-if (sArray[i].equals("V")) {
-str1 += " __      __";
-str2 += " \\ \\    / /";
-str3 += "  \\ \\  / / ";
-str4 += "   \\ \\/ /  ";
-str5 += "    \\  /   ";
-str6 += "     \\/    ";
-}
-if (sArray[i].equals("X")) {
-str1 += " __   __";
-str2 += " \\ \\ / /";
-str3 += "  \\ V / ";
-str4 += "   > <  ";
-str5 += "  / . \\ ";
-str6 += " /_/ \\_\\";
-}
-if (sArray[i].equals("L")) {
-str1 += "  _      ";
-str2 += " | |     ";
-str3 += " | |     ";
-str4 += " | |     ";
-str5 += " | |____ ";
-str6 += " |______|";
-}
-if (sArray[i].equals("C")) {
-str1 += "   _____ ";
-str2 += "  / ____|";
-str3 += " | |     ";
-str4 += " | |     ";
-str5 += " | |____ ";
-str6 += " |______|";
-}
-if (sArray[i].equals("D")) {
-str1 += "  _____   ";
-str2 += " |  __ \\  ";
-str3 += " | |  | | ";
-str4 += " | |  | | ";
-str5 += " | |__| | ";
-str6 += " |_____/  ";
-}
-if (sArray[i].equals("M")) {
-str1 += "  __  __  ";
-str2 += " |  \\/  | ";
-str3 += " | \\  / | ";
-str4 += " | |\\/| | ";
-str5 += " | |  | | ";
-str6 += " |_|  |_| ";
-}
-}
-System.out.println(str1);
-System.out.println(str2);
-System.out.println(str3);
-System.out.println(str4);
-System.out.println(str5);
-System.out.println(str6);
-String[] letter = new String[] {str1, str2, str3, str4, str5, str6};
-return new String[]{Arrays.toString(letter)};
-}
+    public static String print(int number) throws ZeroException, NegativeNumberException, BiggerThan1000Exception {
+        return printAsciiArt(IntegerToRoman.convert(number));
+    }
 
-    public static void main(String[] args) {
-        System.out.println(Arrays.toString(RomanPrinter.printAsciiArt("X")));
+    private static String printAsciiArt(String romanNumber) {
+        String[] I = {
+                "  _____  ",
+                " |_   _| ",
+                "   | |   ",
+                "   | |   ",
+                "  _| |_  ",
+                " |_____| "};
+
+
+        String[] V = {
+                " __      __ ",
+                " \\ \\    / / ",
+                "  \\ \\  / /  ",
+                "   \\ \\/ /   ",
+                "    \\  /    ",
+                "     \\/     "};
+
+
+        String[] X = {" __   __  ",
+                " \\ \\ / /  ",
+                "  \\ V /   ",
+                "   > <    ",
+                "  / . \\   ",
+                " /_/ \\_\\  "
+        };
+
+
+        String[] L = {
+                "  _       ",
+                " | |      ",
+                " | |      ",
+                " | |      ",
+                " | |____  ",
+                " |______| "
+        };
+
+
+        String[] C = {
+                "   _____   ",
+                "  / ____|  ",
+                " | |       ",
+                " | |       ",
+                " | |____   ",
+                "  \\_____|  "
+        };
+
+
+        String[] D = {
+                "  ____    ",
+                " |  __ \\  ",
+                " | |  | | ",
+                " | |  | | ",
+                " | |__| | ",
+                " |_____/  "
+        };
+
+
+        String[] M = {
+                "  __  __   ",
+                " |  \\/  |  ",
+                " | \\  / |  ",
+                " | |\\/| |  ",
+                " | |  | |  ",
+                " |_|  |_|  "};
+
+
+        String result = "";
+
+
+        for (int j = 0; j < 6; j++) {
+
+            for (char c : romanNumber.toCharArray()) {
+                if (c == 'I') {
+                    result += I[j];
+                }
+                if (c == 'V') {
+                    result += V[j];
+                }
+                if (c == 'X') {
+                    result += X[j];
+                }
+                if (c == 'L') {
+                    result += L[j];
+                }
+                if (c == 'C') {
+                    result += C[j];
+                }
+                if (c == 'D') {
+                    result += D[j];
+                }
+                if (c == 'M') {
+                    result += M[j];
+                }
+
+            }
+
+            result += "\n";
+        }
+
+        return result;
     }
 }

@@ -5,178 +5,129 @@
 
 package it.unipd.mtss;
 import static org.junit.Assert.*;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.util.Arrays;
-
 public class RomanPrinterTest {
+	static RomanPrinter printer;
 
-	@Test(expected = Exception.class)
-	public void TestEqualZero() throws Exception {  	    
-		String expected="Valori non consentiti";
-		
-		assertEquals(RomanPrinter.print(0), expected);
-	}
-	
-	@Test(expected = Exception.class)
-	public void TestNegative() throws Exception {  	    
-		String expected="Valori non consentiti";
-		
-		assertEquals(RomanPrinter.print(-10), expected);
-	}
-	
-	@Test(expected = Exception.class)
-	public void TestBiggerThanOneThousand() throws Exception {  	    
-		String expected="Valori non consentiti";
-		
-		assertEquals(RomanPrinter.print(1001), expected);
-	}
-	
-	@Test
-	public void Test30() {
-		String romanNumber = IntegerToRoman.convert(30);
-		
-		assertEquals("XXX", romanNumber);
-	}
-	
-	@Test
-	public void Test800() {
-		String romanNumber = IntegerToRoman.convert(800);
-		
-		assertEquals("DCCC", romanNumber);
-	}
-	
-	@Test
-	public void Test1() {
-		String romanNumber = IntegerToRoman.convert(1);
-		
-		assertEquals("I", romanNumber);
-	}
-	
-	@Test
-	public void Test4() {
-		String romanNumber = IntegerToRoman.convert(4);
-		
-		assertEquals("IV", romanNumber);
-	}
-	
-	@Test
-	public void Test5() {
-		String romanNumber = IntegerToRoman.convert(5);
-		
-		assertEquals("V", romanNumber);
-	}
-	
-	@Test
-	public void Test9() {
-		String romanNumber = IntegerToRoman.convert(9);
-		
-		assertEquals("IX", romanNumber);
-	}
-	
-	@Test
-	public void Test10() {
-		String romanNumber = IntegerToRoman.convert(10);
-		
-		assertEquals("X", romanNumber);
-	}
-	
-	@Test
-	public void Test50() {
-		String romanNumber = IntegerToRoman.convert(50);
-		
-		assertEquals("L", romanNumber);
+
+	@BeforeClass
+	public static void startPrinter() {
+		printer = new RomanPrinter();
 	}
 
 	@Test
-	public void Test100() {
-		String romanNumber = IntegerToRoman.convert(100);
-		
-		assertEquals("C", romanNumber);
+	public void Print1ASCII() throws NegativeNumberException, ZeroException,
+			BiggerThan1000Exception {
+		int number= 1;
+		String ascii= RomanPrinter.print(number);
+		String I =(
+				"  _____  \n"+
+						" |_   _| \n"+
+						"   | |   \n"+
+						"   | |   \n"+
+						"  _| |_  \n"+
+						" |_____| \n");
+
+		assertEquals(I , ascii);
+	}
+
+
+	@Test
+	public void Print5ASCII() throws NegativeNumberException, ZeroException, BiggerThan1000Exception  {
+		int number= 5;
+		String ascii= RomanPrinter.print(number);
+		String V =(
+				" __      __ \n"+
+						" \\ \\    / / \n"+
+						"  \\ \\  / /  \n"+
+						"   \\ \\/ /   \n"+
+						"    \\  /    \n"+
+						"     \\/     \n");
+
+		assertEquals(V , ascii);
+	}
+
+
+	@Test
+	public void Print10ASCII() throws NegativeNumberException, ZeroException, BiggerThan1000Exception {
+		int number= 10;
+		String ascii= RomanPrinter.print(number);
+		String X =(" __   __  \n"+
+				" \\ \\ / /  \n"+
+				"  \\ V /   \n"+
+				"   > <    \n"+
+				"  / . \\   \n"+
+				" /_/ \\_\\  \n"
+		);
+
+		assertEquals(X , ascii);
+	}
+
+
+	@Test
+	public void Print50ASCII() throws NegativeNumberException, ZeroException, BiggerThan1000Exception {
+		int number= 50;
+		String ascii= RomanPrinter.print(number);
+		String L =(
+				"  _       \n"+
+						" | |      \n"+
+						" | |      \n"+
+						" | |      \n"+
+						" | |____  \n"+
+						" |______| \n"
+		);
+
+		assertEquals(L , ascii);
+	}
+
+
+	@Test
+	public void Print100ASCII() throws NegativeNumberException, ZeroException, BiggerThan1000Exception {
+		int number= 100;
+		String ascii= RomanPrinter.print(number);
+		String C =(
+				"   _____   \n"+
+						"  / ____|  \n"+
+						" | |       \n"+
+						" | |       \n"+
+						" | |____   \n"+
+						"  \\_____|  \n"
+		);
+
+		assertEquals(C , ascii);
 	}
 
 	@Test
-	public void Test500() {
-		String romanNumber = IntegerToRoman.convert(500);
-		
-		assertEquals("D", romanNumber);
+	public void Print500ASCII() throws NegativeNumberException, ZeroException, BiggerThan1000Exception {
+		int number= 500;
+		String ascii= RomanPrinter.print(number);
+		String D =(
+				"  ____    \n"+
+						" |  __ \\  \n"+
+						" | |  | | \n"+
+						" | |  | | \n"+
+						" | |__| | \n"+
+						" |_____/  \n"
+		);
+
+		assertEquals(D , ascii);
 	}
 
 	@Test
-	public void Test1000() {
-		String romanNumber = IntegerToRoman.convert(1000);
-		
-		assertEquals("M", romanNumber);
-	}
+	public void Print1000ASCII() throws NegativeNumberException, ZeroException, BiggerThan1000Exception {
+		int number= 1000;
+		String ascii= RomanPrinter.print(number);
+		String M =(
+				"  __  __   \n"+
+						" |  \\/  |  \n"+
+						" | \\  / |  \n"+
+						" | |\\/| |  \n"+
+						" | |  | |  \n"+
+						" |_|  |_|  \n");
 
-	@Test
-	public void Test31() {
-		String romanNumber = IntegerToRoman.convert(31);
-		
-		assertEquals("XXXI", romanNumber);
-	}
-
-	@Test
-	public void Test148() {
-		String romanNumber = IntegerToRoman.convert(148);
-		
-		assertEquals("CXLVIII", romanNumber);
-	}
-
-	@Test
-	public void Test294() {
-		String romanNumber = IntegerToRoman.convert(294);
-		
-		assertEquals("CCXCIV", romanNumber);
-	}
-	
-	@Test
-	public void Test312() {
-		String romanNumber = IntegerToRoman.convert(312);
-		
-		assertEquals("CCCXII", romanNumber);
-	}
-	
-	@Test
-	public void Test421() {
-		String romanNumber = IntegerToRoman.convert(421);
-		
-		assertEquals("CDXXI", romanNumber);
-	}
-	
-	@Test
-	public void Test528() {
-		String romanNumber = IntegerToRoman.convert(528);
-		
-		assertEquals("DXXVIII", romanNumber);
-	}
-	
-	@Test
-	public void Test621() {
-		String romanNumber = IntegerToRoman.convert(621);
-		
-		assertEquals("DCXXI", romanNumber);
-	}
-	
-	@Test
-	public void Test782() {
-		String romanNumber = IntegerToRoman.convert(782);
-		
-		assertEquals("DCCLXXXII", romanNumber);
-	}
-	
-	@Test
-	public void Test870() {
-		String romanNumber = IntegerToRoman.convert(870);
-		
-		assertEquals("DCCCLXX", romanNumber);
-	}
-	
-	@Test
-	public void Test941() {
-		String romanNumber = IntegerToRoman.convert(941);
-		
-		assertEquals("CMXLI", romanNumber);
+		assertEquals(M , ascii);
 	}
 
 }
