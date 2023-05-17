@@ -6,6 +6,9 @@
 package it.unipd.mtss;
 import static org.junit.Assert.*;
 import org.junit.Test;
+
+import java.util.Arrays;
+
 public class RomanPrinterTest {
 
 	@Test(expected = Exception.class)
@@ -175,5 +178,5 @@ public class RomanPrinterTest {
 		
 		assertEquals("CMXLI", romanNumber);
 	}
-	
+
 }

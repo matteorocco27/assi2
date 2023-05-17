@@ -4,11 +4,14 @@
 ////////////////////////////////////////////////////////////////////
 
 package it.unipd.mtss;
+
+import java.util.Arrays;
+
 public class RomanPrinter {
-public static String print(int number) {
+public static String[] print(int number) {
 return printAsciiArt(IntegerToRoman.convert(number));
 }
-public static String printAsciiArt(String romanNumber) {
+public static String[] printAsciiArt(String romanNumber) {
 String any = romanNumber;
 String[] sArray = any.split("");
 String str1 = "";
@@ -81,6 +84,11 @@ System.out.println(str3);
 System.out.println(str4);
 System.out.println(str5);
 System.out.println(str6);
-return null;
+String[] letter = new String[] {str1, str2, str3, str4, str5, str6};
+return new String[]{Arrays.toString(letter)};
 }
+
+    public static void main(String[] args) {
+        System.out.println(Arrays.toString(RomanPrinter.printAsciiArt("X")));
+    }
 }
